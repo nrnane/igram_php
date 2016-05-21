@@ -1,0 +1,7 @@
+LEFT JOIN users u on cm.from_uid = u.uid
+
+SELECT
+	cm.id,cm.from_uid,cm.to_uid,cm.chat_id,cm.message,cm.seen,cm.date, COUNT(cm.id) as msg_count
+FROM
+	chat_messages cm
+WHERE cm.to_uid = 1 AND cm.seen = 0 GROUP BY cm.from_uid

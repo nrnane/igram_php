@@ -1,0 +1,5 @@
+SELECT
+	cm.id,cm.from_uid,cm.to_uid,cm.chat_id,cm.message,cm.seen,cm.date, u.name
+FROM
+	chat_messages cm  LEFT JOIN users u on cm.from_uid = u.uid
+WHERE cm.to_uid = 1 AND cm.seen = 0
